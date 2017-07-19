@@ -103,6 +103,7 @@ with tf.Session() as sess:
         OutputFile.write("")
 
     output = sess.run(probs, feed_dict={features: [im1, im2]})
+    tf.train.saver.save(sess,'my_model')
     #print("Image", input_im_ind)
 for input_im_ind in range(output.shape[0]):
     inds = np.argsort(output)[input_im_ind, :]
